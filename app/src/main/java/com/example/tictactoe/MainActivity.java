@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,8 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textViewPlayer1=findViewById(R.id.player1);
-        textViewPlayer2=findViewById(R.id.player2);
+        textViewPlayer1=findViewById(R.id.player1_points);
+        textViewPlayer2=findViewById(R.id.player2_points);
         for(int i=0;i<3;i++)
         {
             for(int j=0;j<3;j++)
@@ -90,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         player1Turn=true;
     }
     private void updatePointsText() {
-        textViewPlayer1.setText("Player 1 : "+player1Points+" points");
-        textViewPlayer2.setText("Player 2 : "+player2Points+" points");
+        textViewPlayer1.setText("Score : "+player1Points);
+        textViewPlayer2.setText("Score : "+player2Points);
 
     }
 
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         for(int i=0;i<3;i++){
-            if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][0]) && !field[0][i].equals("")){
+            if(field[0][i].equals(field[1][i]) && field[0][i].equals(field[2][i]) && !field[0][i].equals("")){
                 return true;
             }
         }
